@@ -14,7 +14,12 @@ module.exports = function(grunt) {
 
             dev: {
                 files: [
-                    {expand: true, cwd: 'src', src: ['index.html'], dest: 'dev/'},
+                    {
+                        expand: true, 
+                        cwd: 'src', 
+                        src: ['index.html'], 
+                        dest: 'dev/'
+                    },
                     {
                         expand: true,
                         cwd: './bower_components/materialize/dist/fonts',
@@ -27,13 +32,23 @@ module.exports = function(grunt) {
                         src: ['**'],
                         dest: 'dev/css'
                     },
-                    {expand: true, cwd: 'src/img', src: ['**'], dest: 'dev/img'}
+                    {
+                        expand: true, 
+                        cwd: 'src/img', 
+                        src: ['**'], 
+                        dest: 'dev/img'
+                    }
                 ]
             },
 
             html: {
                 files: [
-                    {expand: true, cwd: 'src', src: ['index.html'], dest: 'dev/'}
+                    {
+                        expand: true, 
+                        cwd: 'src', 
+                        src: ['index.html'], 
+                        dest: 'dev/'
+                    }
                 ]
             }
         },
@@ -63,7 +78,7 @@ module.exports = function(grunt) {
                 options: {
                     alias: [
                         './bower_components/angular/angular.min.js:angular',
-                        './bower_components/angular-ui-router/release/angular-ui-router.min.js:angular-ui-router',
+                        './bower_components/angular-ui-router/release/angular-ui-router.min.js:ui-router',
                         './src/vendor/underscore.js:underscore'
                     ]
                 }
@@ -92,11 +107,11 @@ module.exports = function(grunt) {
                 }
             }
         }
-
     });
 
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
