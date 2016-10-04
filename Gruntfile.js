@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
     grunt.initConfig({
 
@@ -7,6 +7,21 @@ module.exports = function(grunt) {
             html: {
                 files: ['src/*.html'],
                 tasks: ['copy:html']
+            }
+        },
+
+        connect: {
+
+            server: {
+
+                options: {
+                    port: 8081,
+                    hostname: "0.0.0.0",
+                    base: "dev/",
+                    onCreateServer: function (server, connect, options) {
+
+                    }
+                }
             }
         },
 
@@ -37,6 +52,12 @@ module.exports = function(grunt) {
                         cwd: 'src/img', 
                         src: ['**'], 
                         dest: 'dev/img'
+                    },
+                    {
+                        expand: true, 
+                        cwd: 'src/css', 
+                        src: ['**'], 
+                        dest: 'dev/css'
                     }
                 ]
             },
@@ -79,7 +100,8 @@ module.exports = function(grunt) {
                     alias: [
                         './bower_components/angular/angular.min.js:angular',
                         './bower_components/angular-ui-router/release/angular-ui-router.min.js:ui-router',
-                        './src/vendor/underscore.js:underscore'
+                        './src/vendor/underscore.js:underscore',
+                        './bower_components/jquery/dist/jquery.js:jquery'
                     ]
                 }
             },
@@ -111,15 +133,16 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-clean');
-    
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks("grunt-contrib-connect");
 
     grunt.registerTask('default', [
         'clean:dev', 
         'browserify:vendor',
         'browserify:watchClient', 
         'copy:dev', 
+        'connect',
         'watch'
     ]);
 

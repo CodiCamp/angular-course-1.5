@@ -12,15 +12,20 @@ import config from './app.config';
 /***
  * App modules
  */
-import homeModule from './home/home.module';
 
+import clientModule from './client/client.module';
+import adminModule from './admin/admin.module';
+
+import commonDirectives from './app-directives/common.directives.js';
 /**
  * Define application dependencies
  * @type {Array}
  */
 let appDependencies = [
     'ui.router',
-    homeModule
+    commonDirectives,
+    clientModule,
+    adminModule
 ];
 
 /**

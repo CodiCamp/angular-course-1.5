@@ -21,7 +21,6 @@ function config ($urlRouterProvider, $stateProvider, $locationProvider) {
     $urlRouterProvider.otherwise('/');
 
     $stateProvider.state("app", {
-        url: "",
         abstract: true,
         views: {
             app: {template: '<div ui-view class="page-wrapper"></div>'}
