@@ -49,14 +49,14 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true, 
-                        cwd: 'src/img', 
+                        cwd: 'src/app/img', 
                         src: ['**'], 
                         dest: 'dev/img'
                     },
                     {
                         expand: true, 
-                        cwd: 'src/css', 
-                        src: ['**'], 
+                        cwd: 'src/app/css', 
+                        src: ['style.css'], 
                         dest: 'dev/css'
                     }
                 ]
@@ -101,7 +101,8 @@ module.exports = function (grunt) {
                         './bower_components/angular/angular.min.js:angular',
                         './bower_components/angular-ui-router/release/angular-ui-router.min.js:ui-router',
                         './src/vendor/underscore.js:underscore',
-                        './bower_components/jquery/dist/jquery.js:jquery'
+                        './bower_components/jquery/dist/jquery.js:jquery',
+                        './bower_components/angular-materialize/src/angular-materialize.js:angularMaterialize'
                     ]
                 }
             },
@@ -122,7 +123,8 @@ module.exports = function (grunt) {
                     external: [
                         'angular',
                         'ui-router',
-                        'underscore'
+                        'underscore',
+                        'angularMaterialize'
                     ],
 
                     alias: {}
