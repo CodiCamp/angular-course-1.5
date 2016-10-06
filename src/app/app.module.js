@@ -3,6 +3,7 @@
  */
 import 'angular';
 import 'ui-router';
+import 'angularMaterialize';
 
 /***
  * App config
@@ -23,6 +24,7 @@ import commonDirectives from './app-directives/common.directives.js';
  */
 let appDependencies = [
     'ui.router',
+    'ui.materialize',
     commonDirectives,
     clientModule,
     adminModule
