@@ -100,6 +100,7 @@ module.exports = function (grunt) {
                     alias: [
                         './bower_components/angular/angular.min.js:angular',
                         './bower_components/angular-ui-router/release/angular-ui-router.min.js:ui-router',
+                        './bower_components/angular-materialize/src/index.js:ui.materialize',
                         './src/vendor/underscore.js:underscore',
                         './bower_components/jquery/dist/jquery.js:jquery'
                     ]
@@ -122,6 +123,7 @@ module.exports = function (grunt) {
                     external: [
                         'angular',
                         'ui-router',
+                        'ui.materialize',
                         'underscore'
                     ],
 
