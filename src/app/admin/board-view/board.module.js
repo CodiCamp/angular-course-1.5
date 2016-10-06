@@ -1,5 +1,10 @@
 import 'angular';
 import config from './board.config';
 
-export default angular.module('admin.board', [])
+import cardModule from './card-view/card.module';
+
+let boardDependencies = [
+    cardModule
+];
+export default angular.module('admin.board', boardDependencies)
     .config(config).name;
