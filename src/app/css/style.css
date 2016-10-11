@@ -4,6 +4,10 @@
   max-width: 100%;
 }
 
+.page-wrapper {
+  height: calc(100vh - 64px);
+}
+
 .container .row {
   margin: 0 auto;
 }

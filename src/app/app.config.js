@@ -23,7 +23,9 @@ function config ($urlRouterProvider, $stateProvider, $locationProvider) {
     $stateProvider.state("app", {
         abstract: true,
         views: {
-            app: {template: '<div ui-view class="page-wrapper"></div>'}
+            app: {
+                template: '<div ui-view class="page-wrapper"></div><footer></footer>'
+            }
         }
     });
 }

@@ -1,8 +1,8 @@
-import template from './header.client.tpl.html';
+import template from './footer.tpl.html';
 
-headerClient.$inject = [];
+footer.$inject = [];
 
-export default function headerClient() {
+export default function footer() {
     var directive = {
         restrict: 'E',
         template: template,
