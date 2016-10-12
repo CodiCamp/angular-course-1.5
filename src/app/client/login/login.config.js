@@ -13,6 +13,9 @@ function config ($stateProvider) {
         url: "/login",
         views: {
             client: {template: template}
+        },
+        params: {
+            requeireLogin: false
         }
     });
 }

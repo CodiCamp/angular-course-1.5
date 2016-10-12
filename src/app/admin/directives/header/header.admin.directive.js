@@ -6,10 +6,12 @@ export default function headerAdmin() {
     var directive = {
         restrict: 'E',
         template: template,
-        link: link
+
+        link (scope, element, attr) {
+
+           
+        }
     };
 
     return directive;
-
-    function link() {}
 }

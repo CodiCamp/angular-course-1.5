@@ -1,26 +1,32 @@
 <h1 class="center grey-text text-darken-2">Login</h1>
 <h4 class="center grey-text text-darken-1">Welcome back!</h4>
-<h5 class="center grey-text text-darken-1">Not a Member? Join <a href="#!/register">HERE</a></h5>
+<h5 class="center grey-text text-darken-1">
+    Not a Member? Join <a ui-shref="app.client.register">HERE</a>
+</h5>
 <br>
 <br>
 <br>
 <div class="row">
     <form class="col s11 hard-center">
-      <div class="row">
-          <div class="input-field col s12 m6">
-            <i class="small material-icons prefix">assignment_ind</i>
-          <input id="username" type="text">
-          <label for="username">Username</label>
+        <div class="row">
+
+            <div class="col s12 m6" input-field>
+                <i class="small material-icons prefix">assignment_ind</i>
+                <input id="username" type="text">
+                <label for="username">Username</label>
+            </div>
+
+            <div class="col s12 m6" input-field>
+                <i class="small material-icons prefix">lock_open</i>
+                <input id="password" type="password">
+                <label for="password">Password</label>
+            </div>
+
+            <div class="submit-field col s12 right" style="text-align:right">
+                <button class="btn-large waves-effect waves-light" type="submit" name="action">Login
+                    <i class="material-icons right">input</i>
+                </button>
+            </div>
         </div>
-        <div class="input-field col s12 m6">
-            <i class="small material-icons prefix">lock_open</i>
-          <input id="password" type="password">
-          <label for="password">Password</label>
-        </div>
-      <div class="submit-field col s12 right" style="text-align:right">
-          <button class="btn-large waves-effect waves-light" type="submit" name="action">Login
-            <i class="material-icons right">input</i>
-        </button>
-      </div>
     </form>
   </div>

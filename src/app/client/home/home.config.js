@@ -12,7 +12,14 @@ function config ($stateProvider) {
     $stateProvider.state("app.client.home", {
         url: "/",
         views: {
-            client: {template: template}
+            client: {
+                template: template,
+                controllerAs: 'vm',
+                controller: 'HomeController'
+            }
+        },
+        params: {
+            requeireLogin: false
         }
     });
 }

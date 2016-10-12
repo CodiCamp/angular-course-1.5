@@ -13,7 +13,14 @@ function config ($stateProvider) {
     $stateProvider.state("app.admin.home", {
         url: "/boards",
         views: {
-            admin: {template: template}
+            admin: {
+                template: template,
+                controllerAs: 'asd',
+                controller: 'asd'
+            }
+        },
+        params: {
+            requeireLogin: true
         }
     });
 }

@@ -13,6 +13,9 @@ function config ($stateProvider) {
         url: "/board",
         views: {
             admin: {template: template}
+        },
+        params: {
+            requeireLogin: true
         }
     });
 }
