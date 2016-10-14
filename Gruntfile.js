@@ -102,6 +102,7 @@ module.exports = function (grunt) {
                         './bower_components/angular-ui-router/release/angular-ui-router.min.js:ui-router',
                         './src/vendor/underscore.js:underscore',
                         './bower_components/jquery/dist/jquery.js:jquery',
+                        './bower_components/ng-resource/dist/ng-resource.js:ng-resource',
                         './bower_components/angular-materialize/src/angular-materialize.js:angularMaterialize'
                     ]
                 }
@@ -124,6 +125,8 @@ module.exports = function (grunt) {
                         'angular',
                         'ui-router',
                         'underscore',
+                        'jquery',
+                        'ng-resource',
                         'angularMaterialize'
                     ],
 

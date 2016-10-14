@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "materialize": "^0.97.7",
-    "angular-materialize": "^0.2.1"
+    "angular-materialize": "^0.2.1",
+    "ng-resource": "^0.0.2"
   }
 }

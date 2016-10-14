@@ -5,8 +5,9 @@ function HomeController ($scope) {
 
     var vm = this;
 
+
     vm.title = 'Home Controller';
-    $scope.testProp = 'true';
+    $scope.$parent.title = vm.title;
 
     activate();
 

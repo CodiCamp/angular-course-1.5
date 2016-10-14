@@ -4,6 +4,7 @@
 import 'angular';
 import 'ui-router';
 import 'angularMaterialize';
+import 'ng-resource';
 
 /***
  * App config
@@ -18,6 +19,8 @@ import clientModule from './client/client.module';
 import adminModule from './admin/admin.module';
 
 import commonDirectives from './app-directives/common.directives.js';
+import appServices from './services/app.services';
+
 /**
  * Define application dependencies
  * @type {Array}
@@ -25,7 +28,10 @@ import commonDirectives from './app-directives/common.directives.js';
 let appDependencies = [
     'ui.router',
     'ui.materialize',
+    'ngResource',
     commonDirectives,
+    appServices,
+    
     clientModule,
     adminModule
 ];

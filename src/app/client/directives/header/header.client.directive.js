@@ -13,14 +13,13 @@ export default function headerClient() {
     };
 
     // headerController.call($scope['header'])
-
     headerController.$inject = ['$scope'];
+
 
     function headerController ($scope) {
         var vm = this;
-
-        vm.title = 'header controller directive';
-        vm.inheritToChilds = 'false';
+        //
+        vm.title = $scope.title;
         console.log('visible from the directive', $scope.inheritToChilds);
     }
 
