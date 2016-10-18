@@ -4,9 +4,9 @@
 
 export default config;
 
-config.$inject = ['$urlRouterProvider', '$stateProvider', '$locationProvider'];
+config.$inject = ['$urlRouterProvider', '$stateProvider', '$locationProvider','$httpProvider'];
 
-function config ($urlRouterProvider, $stateProvider, $locationProvider) {
+function config ($urlRouterProvider, $stateProvider, $locationProvider, $httpProvider) {
 
     /**
      * Setup hash bang URL's
@@ -19,6 +19,8 @@ function config ($urlRouterProvider, $stateProvider, $locationProvider) {
      */
     $urlRouterProvider.when('', '/');
     $urlRouterProvider.otherwise('/');
+
+    $httpProvider.interceptors.push('loginInterceptor');
 
     $stateProvider.state("app", {
         abstract: true,

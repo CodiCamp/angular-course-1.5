@@ -2,7 +2,7 @@
  * Configure Home module
  **/
 import template from './login.tpl.html';
-import LoginController from './login..controller';
+import LoginController from './login.controller.js';
 
 export default config;
 

@@ -13,7 +13,9 @@ function config ($stateProvider) {
         url: "/register",
         views: {
             client: {
-                template: template
+                template: template,
+                controller: 'RegisterController',
+                controllerAs: 'vm'
             }
         },
         params: {
