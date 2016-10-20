@@ -1,8 +1,8 @@
-import template from './header.admin.tpl.html';
+import template from './footer.tpl.html';
 
-headerAdmin.$inject = [];
+footer.$inject = [];
 
-export default function headerAdmin() {
+export default function footer() {
     var directive = {
         restrict: 'E',
         template: template,

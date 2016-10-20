@@ -19,6 +19,8 @@
     "angular-ui-router": "^0.3.1"
   },
   "devDependencies": {
-    "materialize": "^0.97.7"
+    "materialize": "^0.97.7",
+    "angular-materialize": "^0.2.1",
+    "angular-resource": "^1.5.8"
   }
 }
