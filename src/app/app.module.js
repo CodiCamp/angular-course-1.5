@@ -5,6 +5,7 @@ import 'angular';
 import 'ui-router';
 import 'angularMaterialize';
 import 'ng-resource';
+import 'ng-storage';
 
 /***
  * App config
@@ -20,6 +21,9 @@ import adminModule from './admin/admin.module';
 
 import commonDirectives from './app-directives/common.directives.js';
 import appServices from './services/app.services';
+import appProviders from './providers/app.providers';
+
+import appConstants from './constants/app.constants';
 
 /**
  * Define application dependencies
@@ -29,8 +33,11 @@ let appDependencies = [
     'ui.router',
     'ui.materialize',
     'ngResource',
+    'ngStorage',
     commonDirectives,
     appServices,
+    appProviders,
+    appConstants,
     
     clientModule,
     adminModule
@@ -47,22 +54,21 @@ app.config(config)
 
 // asd.call($scope['asd']);
 
-appRun.$inject = ['$rootScope', '$state'];
+appRun.$inject = ['$rootScope', '$state', 'ProfileService'];
 
-function appRun ($rootScope, $state) {
+function appRun ($rootScope, $state, ProfileService) {
 
-    $rootScope.loggedIn = false;
 
     $rootScope.$on('$stateChangeStart', handleStateChange);
 
     function handleStateChange (evnt, toState, toParams, fromState, fromParams, options) {
 
-        if($rootScope.loggedIn === toState.params.requeireLogin) {
+        if(ProfileService.isLoggedIn() === toState.params.requeireLogin) {
 
         }else {
             evnt.preventDefault();
 
-            if($rootScope.loggedIn) {
+            if(ProfileService.isLoggedIn()) {
                 $state.go('app.admin.home');
             }else {
                 $state.go('app.client.home');

@@ -3,6 +3,7 @@
  **/
 
 import template from './home.tpl.html';
+import HomeController from  './home.controller';
 
 export default config;
 
@@ -15,8 +16,8 @@ function config ($stateProvider) {
         views: {
             admin: {
                 template: template,
-                controllerAs: 'asd',
-                controller: 'asd'
+                controllerAs: 'vm',
+                controller: HomeController
             }
         },
         params: {

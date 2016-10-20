@@ -4,12 +4,15 @@
 
 export default config;
 
-config.$inject = ['$urlRouterProvider', '$stateProvider', '$locationProvider','$httpProvider'];
+config.$inject = ['$urlRouterProvider', '$stateProvider', '$locationProvider','$httpProvider', 'ProfileServiceProvider'];
 
-function config ($urlRouterProvider, $stateProvider, $locationProvider, $httpProvider) {
+function config ($urlRouterProvider, $stateProvider, $locationProvider, $httpProvider, ProfileServiceProvider) {
+
+    ProfileServiceProvider.loadProfile();
 
     /**
      * Setup hash bang URL's
+     *loggedIn
      */
     $locationProvider.html5Mode(false);
     $locationProvider.hashPrefix('!');
