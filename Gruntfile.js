@@ -103,7 +103,8 @@ module.exports = function (grunt) {
                         './src/vendor/underscore.js:underscore',
                         './bower_components/jquery/dist/jquery.js:jquery',
                         './bower_components/angular-resource/angular-resource.js:ng-resource',
-                        './bower_components/angular-materialize/src/angular-materialize.js:angularMaterialize'
+                        './bower_components/angular-materialize/src/angular-materialize.js:angularMaterialize',
+                        './src/vendor/ngStorage.js:ng-storage'
                     ]
                 }
             },
@@ -127,7 +128,8 @@ module.exports = function (grunt) {
                         'underscore',
                         'jquery',
                         'ng-resource',
-                        'angularMaterialize'
+                        'angularMaterialize',
+                        'ng-storage'
                     ],
 
                     alias: {}

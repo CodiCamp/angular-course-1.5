@@ -1,8 +1,8 @@
 export default RegisterController;
 
-RegisterController.$inject = ['$scope', 'UserService'];
+RegisterController.$inject = ['UserService', 'ProfileService'];
 
-function RegisterController ($scope, UserService) {
+function RegisterController (UserService, ProfileService) {
 
     var vm = this;
 
@@ -28,19 +28,32 @@ function RegisterController ($scope, UserService) {
         if( vm.registerForm.$valid) {
             console.log('YES');
 
-            UserService.registerUser(vm.userData,
-                function success (response){
-
-                    console.log(response);
-                }, function error (response) {
-
-                    console.error(response);
-                });
+            UserService.registerUser(vm.userData, registrationSuccess, registrationError);
 
         }else {
             console.log('NO');
         }
     };
+
+    /***
+     *
+     * @param response
+     */
+    function registrationSuccess (response){
+
+        console.log(response);
+        
+        ProfileService.setProfile(response.result);
+    }
+
+    /***
+     *
+     * @param response
+     */
+    function registrationError (response) {
+
+        console.error(response);
+    }
 
     vm.checkUsername = function () {
 
