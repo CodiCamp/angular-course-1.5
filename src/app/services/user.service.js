@@ -15,7 +15,7 @@ function UserService ($resource){
 
     return $resource(URL, defaultParams, {
 
-        authenticateUser: {
+        getAllUsers: {
             method: 'GET',
             params: {
                 action: 'users'
