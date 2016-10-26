@@ -1,8 +1,8 @@
 export default RegisterController;
 
-RegisterController.$inject = ['UserService', 'ProfileService'];
+RegisterController.$inject = ['UserService', 'ProfileService', 'filterByFilter', '$state'];
 
-function RegisterController (UserService, ProfileService) {
+function RegisterController (UserService, ProfileService, filterBy, $state) {
 
     var vm = this;
 
@@ -17,15 +17,26 @@ function RegisterController (UserService, ProfileService) {
         email: ''
     };
 
+    vm.ui = {
+        errors: {
+            taken: false
+        }
+    };
+
+    var users = [];
+
     ////////////////
 
     function activate() {
 
+        UserService.getAllUsers({}, function success (response) {
+            users = response.result;
+        });
     }
 
     vm.initiateRegister = function () {
 
-        if( vm.registerForm.$valid) {
+        if( vm.registerForm.$valid && !vm.ui.errors.taken) {
             console.log('YES');
 
             UserService.registerUser(vm.userData, registrationSuccess, registrationError);
@@ -44,6 +55,7 @@ function RegisterController (UserService, ProfileService) {
         console.log(response);
         
         ProfileService.setProfile(response.result);
+        $state.go('app.admin.home');
     }
 
     /***
@@ -57,9 +69,14 @@ function RegisterController (UserService, ProfileService) {
 
     vm.checkUsername = function () {
 
+
         if(vm.userData.username.length > 5) {
 
-            console.log('check for user');
+            if(filterBy(users, vm.userData.username)){
+                vm.ui.errors.taken = true;
+            }else {
+                vm.ui.errors.taken = false;
+            }
         }
     };
 }

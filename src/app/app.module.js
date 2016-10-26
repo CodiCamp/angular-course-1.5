@@ -22,6 +22,7 @@ import adminModule from './admin/admin.module';
 import commonDirectives from './app-directives/common.directives.js';
 import appServices from './services/app.services';
 import appProviders from './providers/app.providers';
+import appFilters from './filters/app.filters';
 
 import appConstants from './constants/app.constants';
 
@@ -38,6 +39,7 @@ let appDependencies = [
     appServices,
     appProviders,
     appConstants,
+    appFilters,
     
     clientModule,
     adminModule
