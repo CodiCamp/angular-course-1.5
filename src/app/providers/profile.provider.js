@@ -24,7 +24,8 @@ function ProfileService ($localStorage) {
 
         return {
             isLoggedIn: isLoggedIn,
-            setProfile: setProfile
+            setProfile: setProfile,
+            getProfile: getProfile
         };
     };
 
@@ -43,5 +44,9 @@ function ProfileService ($localStorage) {
 
         $localStorage.set('loggedIn', userProfileData.loggedIn);
         $localStorage.set('userId', userProfileData.id);
+    }
+    
+    function getProfile() {
+        return userProfileData;
     }
 }
