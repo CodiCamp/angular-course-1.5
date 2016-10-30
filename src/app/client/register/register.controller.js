@@ -70,7 +70,7 @@ function RegisterController (UserService, ProfileService, filterBy, $state) {
     vm.checkUsername = function () {
 
 
-        if(vm.userData.username.length > 5) {
+        if(vm.registerForm.username.$valid) {
 
             if(filterBy(users, vm.userData.username)){
                 vm.ui.errors.taken = true;

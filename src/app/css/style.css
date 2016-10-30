@@ -12,11 +12,11 @@
   margin: 0 auto;
 }
 
-.hard-center {
-  position: absolute;
-  left: 50% !important;
-  transform: translate(-50%, 0%);
-}
+/*.hard-center {*/
+  /*position: absolute;*/
+  /*left: 50% !important;*/
+  /*transform: translate(-50%, 0%);*/
+/*}*/
 
 .card .card-action.above {
   padding: 10px;
