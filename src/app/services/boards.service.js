@@ -31,6 +31,14 @@ function BoardsService($resource, API_URL) {
             isArray: false
         },
 
+        createBoard: {
+            method: 'POST',
+            params: {
+                action: 'boards'
+            },
+            isArray: false
+        },
+
         getBoard: {
             method: 'GET',
             params: {

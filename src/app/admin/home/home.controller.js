@@ -40,12 +40,28 @@ function HomeController(BoardsService, ProfileService) {
     function successDeleteBoard(response) {
 
         vm.boards = _.reject(vm.boards, this);
-        board.deleting = false;
+        //board.deleting = false;
     }
 
     function failDeleteBoard(response) {
         //TODO: Show error
         board.deleting = false;
     }
+    
+    vm.createBoard = function () {
+        var title = prompt("Enter board name: ");
+        var newBoard = {
+            name: title,
+            userId: userId
+        };
+        BoardsService.createBoard(newBoard,
+            function success(response) {
+                console.log(response.result);
+                BoardsService.getBoards({userId: userId}, successGetBoards, failGetBoards);
+            }, function error(response) {
+                //TODO: error
+            }
+        )
+    };
 }
 
