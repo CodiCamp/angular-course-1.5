@@ -1,10 +1,10 @@
 
 export default AdminController;
 
-AdminController.$inject = ['ProfileService'];
+AdminController.$inject = ['SessionService'];
 
 /* @ngInject */
-function AdminController(ProfileService) {
+function AdminController(SessionService) {
     var vm   = this;
     vm.title = 'AdminController';
 
@@ -14,5 +14,6 @@ function AdminController(ProfileService) {
 
     function activate() {
 
+        SessionService.startSessionCheck();
     }
 }
