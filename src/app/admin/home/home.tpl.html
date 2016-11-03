@@ -3,6 +3,10 @@
         <div class="section">
         <h5 class="teal-text">Personal Boards</h5>
         </div>
+
+        <div ng-show="vm.boards.length === 0">
+            <h1>You don't have any boards</h1>
+        </div>
     <div class="divider teal"></div>
     <div class="col s12 m6 l3" ng-repeat="board in vm.boards">
         <div class="card small hoverable red lighten-1">
