@@ -71,3 +71,12 @@
 /*::-webkit-scrollbar { */
     /*display: none; */
 /*}*/
+@media screen and (max-width: 860px) {
+  nav .brand-logo {
+    display: none;
+  }
+
+  .card.small {
+    height: 180px;
+  }
+}
