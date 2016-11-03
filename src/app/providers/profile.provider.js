@@ -3,10 +3,9 @@ ProfileService.$inject = ['$localStorageProvider'];
 /* @ngInject */
 export default ProfileService;
 
-function ProfileService ($localStorage) {
+function ProfileService ($localStorage, $timeout, $state) {
 
-    var userProfileData = {},
-        sessionTimer = null;
+    var userProfileData = {};
 
     /***
      * Methods availableonly in the config

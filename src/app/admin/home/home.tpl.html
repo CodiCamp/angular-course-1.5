@@ -4,7 +4,7 @@
         <h5 class="teal-text">Personal Boards</h5>
         </div>
 
-        <div ng-show="vm.boards.length === 0">
+        <div ng-show="vm.boards.length === 0 && !vm.ui.boardsLoading">
             <h1>You don't have any boards</h1>
         </div>
     <div class="divider teal"></div>

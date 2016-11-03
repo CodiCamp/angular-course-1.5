@@ -10,6 +10,9 @@ function HomeController(BoardsService, ProfileService) {
     vm.title = 'Home Controller';
 
     vm.boards = [];
+    vm.ui = {
+        boardsLoading: true
+    };
 
     let userId;
     
@@ -36,10 +39,12 @@ function HomeController(BoardsService, ProfileService) {
 
     function successGetBoards(response) {
         vm.boards = response.result;
+        vm.ui.boardsLoading = false;
     }
 
     function failGetBoards(response) {
         //TODO: Show error
+        vm.ui.boardsLoading = false;
     }
 
     /***
