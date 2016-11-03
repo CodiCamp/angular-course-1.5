@@ -23,9 +23,14 @@ function HomeController(BoardsService, ProfileService) {
     }
 
     vm.deleteBoard = function (board) {
+
         if(!board.deleting) {
             board.deleting = true;
-            BoardsService.deleteBoard({userId: userId, boardId: board.id}, successDeleteBoard.bind(board), failDeleteBoard);
+
+            BoardsService.deleteBoard({
+                userId: userId,
+                boardId: board.id
+            }, successDeleteBoard.bind(board), failDeleteBoard.bind(board));
         }
     };
 
@@ -37,23 +42,36 @@ function HomeController(BoardsService, ProfileService) {
         //TODO: Show error
     }
 
+    /***
+     * Success callback on deleting a board
+     * @context {Object} board that has been deleted
+     * @param response
+     */
     function successDeleteBoard(response) {
 
         vm.boards = _.reject(vm.boards, this);
-        //board.deleting = false;
+        this.deleting = false;
     }
 
     function failDeleteBoard(response) {
         //TODO: Show error
-        board.deleting = false;
+        this.deleting = false;
     }
-    
+
+    /***
+     * TO DO: complete
+     * - show modal to enter Board name
+     * - modal must have 2 button - save, cancel
+     */
     vm.createBoard = function () {
+
         var title = prompt("Enter board name: ");
+
         var newBoard = {
             name: title,
             userId: userId
         };
+
         BoardsService.createBoard(newBoard,
             function success(response) {
                 console.log(response.result);
@@ -63,5 +81,7 @@ function HomeController(BoardsService, ProfileService) {
             }
         )
     };
+    
+    
 }
 

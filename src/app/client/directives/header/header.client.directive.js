@@ -20,7 +20,6 @@ export default function headerClient() {
         var vm = this;
         //
         vm.title = $scope.title;
-        console.log('visible from the directive', $scope.inheritToChilds);
     }
 
     return directive;
