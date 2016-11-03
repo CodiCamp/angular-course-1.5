@@ -80,3 +80,11 @@
     height: 180px;
   }
 }
+
+.modal.open {
+  z-index: 1003;
+  display: block;
+  opacity: 1;
+  transform: scaleX(1);
+  top: 10%;
+}
