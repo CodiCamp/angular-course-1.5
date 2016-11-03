@@ -14,7 +14,6 @@ function HomeController ($scope) {
     ////////////////
 
     function activate() {
-        console.log('activating ' + vm.title);
         vm.activeReturns = 'something';
     }
 

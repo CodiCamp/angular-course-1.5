@@ -45,6 +45,30 @@ function BoardController($state, BoardsService, ProfileService) {
 
         // TODO : show error
     }
+
+    vm.createCard = function () {
+
+        var title = prompt("Enter card name: ");
+
+        var newCard = {
+            name: title,
+            userId: userId,
+            boardId: vm.board.id
+        };
+
+        BoardsService.createCard(newCard,
+            successCreateCard, failCreateCard
+        )
+    };
+
+    function successCreateCard(response){
+
+        vm.board.cards.push(response.result);
+    }
+    function failCreateCard(response){
+
+        // TODO : show error
+    }
 }
 
 

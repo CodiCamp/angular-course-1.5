@@ -21,7 +21,6 @@ function LoginController ($state, UserService, filterByUP, ProfileService) {
         UserService.getAllUsers({},
             function success (response){
                 users = response.result;
-                console.log(response);
             }, function error (response) {
 
                 console.error(response);
@@ -42,6 +41,7 @@ function LoginController ($state, UserService, filterByUP, ProfileService) {
            
        }else {
            console.log('NO');
+           // TODO: focus on first invalid input
        }
     }
 }
