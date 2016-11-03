@@ -22,6 +22,7 @@ function UserService ($resource){
             },
             isArray: false
         },
+        
         registerUser: {
             method: 'POST',
             params: {
