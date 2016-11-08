@@ -10,6 +10,13 @@ function HomeController(BoardsService, ProfileService) {
     vm.title = 'Home Controller';
 
     vm.boards = [];
+    vm.ui = {
+        boardsLoading: true,
+        modal: {
+            show : false,
+            title: ''
+        }
+    };
 
     let userId;
     
@@ -24,8 +31,19 @@ function HomeController(BoardsService, ProfileService) {
 
     vm.deleteBoard = function (board) {
 
+        vm.ui.modal.show = true;
+        vm.ui.modal.title = board.name;
+        vm.confirmDelete = vm.confirmDelete.bind(board);
+    };
+
+    vm.confirmDelete = function (){
+        var board = this;
+
+        
         if(!board.deleting) {
             board.deleting = true;
+
+
 
             BoardsService.deleteBoard({
                 userId: userId,
@@ -36,10 +54,12 @@ function HomeController(BoardsService, ProfileService) {
 
     function successGetBoards(response) {
         vm.boards = response.result;
+        vm.ui.boardsLoading = false;
     }
 
     function failGetBoards(response) {
         //TODO: Show error
+        vm.ui.boardsLoading = false;
     }
 
     /***

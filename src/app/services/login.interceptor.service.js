@@ -1,14 +1,17 @@
 
-loginInterceptor.$inject = [];
+loginInterceptor.$inject = ['SessionService'];
 
     /* @ngInject */
-    function loginInterceptor() {
+    function loginInterceptor(SessionService) {
         return {
             request: function (config) {
 
                 return config;
             },
+
             response: function (response) {
+
+                SessionService.setSession(true);
 
                 return {
                     data: {
@@ -17,7 +20,11 @@ loginInterceptor.$inject = [];
                     }
                 };
             },
+
             responseError: function (response) {
+
+                SessionService.setSession(true);
+                
                 console.log(response);
                 return response;
             }

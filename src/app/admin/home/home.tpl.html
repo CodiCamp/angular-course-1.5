@@ -4,7 +4,7 @@
         <h5 class="teal-text">Personal Boards</h5>
         </div>
 
-        <div ng-show="vm.boards.length === 0">
+        <div ng-show="vm.boards.length === 0 && !vm.ui.boardsLoading">
             <h1>You don't have any boards</h1>
         </div>
     <div class="divider teal"></div>
@@ -20,7 +20,7 @@
                    ui-sref="app.admin.board({id: board.id, board: board})"
                    class="white-text"><i class="material-icons left small">web</i>
                 </a>
-                <a href="javascript:;" class="white-text" ng-click="vm.deleteBoard(board)"><i class="material-icons right small">delete</i></a>
+                <a href="#modal" class="white-text" ng-click="vm.deleteBoard(board)"><i class="material-icons right small">delete</i></a>
             </div>
         </div>
     </div>
@@ -32,3 +32,6 @@
         </div>
     </div>
 </div>
+    </div>
+
+    <confirm-modal data-show="vm.ui.modal.show" data-title="{{vm.ui.modal.title}}" data-action="vm.confirmDelete()"></confirm-modal>
