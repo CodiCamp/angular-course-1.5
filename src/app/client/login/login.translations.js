@@ -1,0 +1,1 @@
+export const translations = ['client.loginPage.username', 'client.loginPage.password'];
