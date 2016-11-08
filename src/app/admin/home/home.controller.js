@@ -11,7 +11,11 @@ function HomeController(BoardsService, ProfileService) {
 
     vm.boards = [];
     vm.ui = {
-        boardsLoading: true
+        boardsLoading: true,
+        modal: {
+            show : false,
+            title: ''
+        }
     };
 
     let userId;
@@ -27,8 +31,19 @@ function HomeController(BoardsService, ProfileService) {
 
     vm.deleteBoard = function (board) {
 
+        vm.ui.modal.show = true;
+        vm.ui.modal.title = board.name;
+        vm.confirmDelete = vm.confirmDelete.bind(board);
+    };
+
+    vm.confirmDelete = function (){
+        var board = this;
+
+        
         if(!board.deleting) {
             board.deleting = true;
+
+
 
             BoardsService.deleteBoard({
                 userId: userId,
