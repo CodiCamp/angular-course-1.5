@@ -56,7 +56,7 @@ function LoginController ($state, UserService, filterByUP, ProfileService, $tran
 
             //vm.translations = _.extend({}, translations, commonTranslations);
             vm.translations = translations;
-            vm.translations.common = commonTranslations;
+            // vm.translations.common = commonTranslations;
         });
     }
 }
