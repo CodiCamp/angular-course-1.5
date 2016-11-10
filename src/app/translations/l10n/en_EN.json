@@ -7,6 +7,10 @@
   },
   "errors": {
 
+    "loginErrors": {
+      "invalidUsername" : "Username is not valid!",
+      "invalidPassword" : "Wrong password"
+    }
   },
   "client": {
 
