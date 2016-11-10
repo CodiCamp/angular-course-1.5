@@ -1,3 +1,4 @@
+import _ from 'underscore';
 import {commonTranslations, errorsTranslations} from '../app.translations';
 
 export default Translations;
@@ -9,13 +10,22 @@ function Translations($translate, $q) {
 
     return {
 
-        //TO DO: add parameter for NAMESPACE
         /***
          * Add descriptions
+         * @param namespace
          * @param keysArray
          * @returns {Deferred|*}
          */
-        executeTranslations: function (keysArray) {
+        executeTranslations: function (namespace,keysArray) {
+
+            namespace = namespace + ".";
+
+            /**
+             * Adds namespace to the array of keys,to retrieve the translations
+             */
+            keysArray = _.map(keysArray,function(key) {
+                return namespace + key;
+            });
 
             return $q.all([
                 $translate(commonTranslations),
@@ -41,7 +51,17 @@ function Translations($translate, $q) {
                 /***
                  * Aspirin
                  */
-                var pageTranslations = translations[2];
+
+                /**
+                 * Iterates throw the returned translations and removes the namespace string
+                 */
+                var pageTranslations = _.reduce(translations[2], function(obj, val, key) {
+
+                    key = key.replace(namespace, "");
+                    obj[key] = val;
+                    return obj;
+                }, {});
+
                 //Assign common and error translations
                 pageTranslations.common = translations[0];
                 pageTranslations.errors = translations[1];
