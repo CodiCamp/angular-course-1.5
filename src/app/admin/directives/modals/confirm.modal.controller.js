@@ -5,10 +5,10 @@ ConfirmModalController.$inject = ['$scope'];
 /* @ngInject */
 function ConfirmModalController($scope) {
 
-
-    init();
-
-    function init() {
-
+    $scope.completeAction = function () {
+        $scope.show = false;
+        $scope.action({
+            item: $scope.item
+        });
     }
 }

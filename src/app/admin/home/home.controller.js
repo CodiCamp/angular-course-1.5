@@ -33,34 +33,20 @@ function HomeController(BoardsService, ProfileService) {
 
         vm.ui.modal.show = true;
         vm.ui.modal.title = board.name;
-        vm.confirmDelete = vm.confirmDelete.bind(board);
+        vm.ui.modal.itemToDelete = board;
     };
 
-    vm.confirmDelete = function (){
-        var board = this;
+    vm.confirmDelete = function (item){
 
-        
-        if(!board.deleting) {
-            board.deleting = true;
-
-
+        if(!item.deleting) {
+            item.deleting = true;
 
             BoardsService.deleteBoard({
                 userId: userId,
-                boardId: board.id
-            }, successDeleteBoard.bind(board), failDeleteBoard.bind(board));
+                boardId: item.id
+            }, successDeleteBoard.bind(item), failDeleteBoard.bind(item));
         }
     };
-
-    function successGetBoards(response) {
-        vm.boards = response.result;
-        vm.ui.boardsLoading = false;
-    }
-
-    function failGetBoards(response) {
-        //TODO: Show error
-        vm.ui.boardsLoading = false;
-    }
 
     /***
      * Success callback on deleting a board
@@ -77,6 +63,18 @@ function HomeController(BoardsService, ProfileService) {
         //TODO: Show error
         this.deleting = false;
     }
+
+    function successGetBoards(response) {
+        vm.boards = response.result;
+        vm.ui.boardsLoading = false;
+    }
+
+    function failGetBoards(response) {
+        //TODO: Show error
+        vm.ui.boardsLoading = false;
+    }
+
+
 
     /***
      * TO DO: complete

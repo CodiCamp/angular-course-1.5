@@ -34,4 +34,9 @@
 </div>
     </div>
 
-    <confirm-modal data-show="vm.ui.modal.show" data-title="{{vm.ui.modal.title}}" data-action="vm.confirmDelete()"></confirm-modal>
+<confirm-modal
+        data-show="vm.ui.modal.show"
+        data-title="{{vm.ui.modal.title}}"
+        data-action="vm.confirmDelete(item)"
+        data-item="vm.ui.modal.itemToDelete">
+</confirm-modal>
