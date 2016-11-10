@@ -8,14 +8,15 @@ export default function confirmModal() {
         template: template,
         controller: ConfirmModalController,
 
-        link (scope, element, attr) {
+        link (scope, element, attrs) {
 
         },
 
         scope: {
             show: '=',
             title: '@',
-            action: '&'
+            action: '&',
+            item: '='
         }
 
     };

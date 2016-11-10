@@ -15,17 +15,13 @@ function LoginController ($state, UserService, filterByUP, ProfileService, Trans
     };
 
     vm.translations = {};
-    vm.errorsTranslations = {};
-    vm.commonTranslations = {};
-
-    console.log(Translations);
-    var allTranslations = Translations.executeTranslations(translations);
 
     activate();
 
     ////////////////
 
     function activate() {
+        
         UserService.getAllUsers({},
             function success (response){
                 users = response.result;
@@ -34,10 +30,9 @@ function LoginController ($state, UserService, filterByUP, ProfileService, Trans
                 console.error(response);
             });
 
-        vm.translations = allTranslations.pageTranslations;
-        vm.errorsTranslations = allTranslations.errorsTranslations;
-        vm.commonTranslations = allTranslations.commonTranslations;
-
+        Translations.executeTranslations(translations).then(function (translations) {
+            vm.translations = translations;
+        });
     }
 
     vm.initiateLogin = function () {
