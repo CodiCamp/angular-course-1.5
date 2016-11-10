@@ -6,6 +6,11 @@ import 'ui-router';
 import 'angularMaterialize';
 import 'ng-resource';
 import 'ng-storage';
+import 'angular-cookies';
+import 'ng-translate';
+import 'ng-translate-loader';
+import 'ng-translate-local';
+import 'ng-translate-cookie';
 
 /***
  * App config
@@ -35,6 +40,8 @@ let appDependencies = [
     'ui.materialize',
     'ngResource',
     'ngStorage',
+    'ngCookies',
+    'pascalprecht.translate',
     commonDirectives,
     appServices,
     appProviders,
@@ -56,9 +63,9 @@ app.config(config)
 
 // asd.call($scope['asd']);
 
-appRun.$inject = ['$rootScope', '$state', 'ProfileService'];
+appRun.$inject = ['$rootScope', '$state', 'ProfileService', '$translate'];
 
-function appRun ($rootScope, $state, ProfileService) {
+function appRun ($rootScope, $state, ProfileService, $translate) {
 
 
     $rootScope.$on('$stateChangeStart', handleStateChange);
@@ -77,4 +84,6 @@ function appRun ($rootScope, $state, ProfileService) {
             }
         }
     }
+
+    // $translate.use('en_EN');
 }

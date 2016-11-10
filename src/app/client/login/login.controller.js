@@ -1,8 +1,9 @@
+import {translations} from './login.translations';
 export default LoginController;
 
-LoginController.$inject = ['$state', 'UserService', 'filterByUPFilter', 'ProfileService'];
+LoginController.$inject = ['$state', 'UserService', 'filterByUPFilter', 'ProfileService', '$translate'];
 
-function LoginController ($state, UserService, filterByUP, ProfileService) {
+function LoginController ($state, UserService, filterByUP, ProfileService, $translate) {
 
     var vm = this;
 
@@ -12,6 +13,8 @@ function LoginController ($state, UserService, filterByUP, ProfileService) {
         username: '',
         password: ''
     };
+
+    vm.translations = {};
 
     activate();
 
@@ -25,6 +28,8 @@ function LoginController ($state, UserService, filterByUP, ProfileService) {
 
                 console.error(response);
             });
+
+        executeTranslations();
     }
 
     vm.initiateLogin = function () {
@@ -43,6 +48,16 @@ function LoginController ($state, UserService, filterByUP, ProfileService) {
            console.log('NO');
            // TODO: focus on first invalid input
        }
+    };
+
+    function executeTranslations (){
+
+        $translate(translations).then(function (translations) {
+
+            //vm.translations = _.extend({}, translations, commonTranslations);
+            vm.translations = translations;
+            vm.translations.common = commonTranslations;
+        });
     }
 }
 

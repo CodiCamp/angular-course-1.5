@@ -13,6 +13,10 @@ loginInterceptor.$inject = ['SessionService'];
 
                 SessionService.setSession(true);
 
+                if(response.config.url.includes('translations')) {
+                    return response;
+                }
+
                 return {
                     data: {
                         result: response.data,

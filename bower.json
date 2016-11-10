@@ -21,6 +21,10 @@
   "devDependencies": {
     "materialize": "^0.97.7",
     "angular-materialize": "^0.2.1",
-    "angular-resource": "^1.5.8"
+    "angular-resource": "^1.5.8",
+    "angular-translate": "^2.13.0",
+    "angular-translate-loader-static-files": "^2.13.0",
+    "angular-translate-storage-local": "^2.13.0",
+    "angular-cookies": "^1.5.8"
   }
 }
