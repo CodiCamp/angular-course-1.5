@@ -1,3 +1,6 @@
+import {commonTranslations} from '../app.translations';
+import {errorsTranslations} from '../app.translations';
+
 export default Translations;
 
 Translations.$inject = ['$translate'];
@@ -9,16 +12,36 @@ function Translations($translate) {
 
         executeTranslations: function (keysArray) { // namespace ,
 
-            $translate(keysArray).then(function (translations) {
+            $translate(keysArray).then(function (pageTranslations) {
 
-                //vm.translations = _.extend({}, translations, commonTranslations);
+                var translations = {
+
+                    pageTranslations: pageTranslations,
+                    errorsTranslations: this.executeErrorTranslations(),
+                    commonTranslations: this.executeCommonTranslations()
+                };
+
                 return translations;
-                // vm.translations.common = commonTranslations;
 
-            }, function (error) {
+            });
 
-                // TODO : handle translations error
-                console.log(error);
+        },
+
+        executeErrorTranslations : function (errorsTranslations) { // errorKeysArray
+
+            $translate(errorsTranslations).then(function (translations) {
+
+                return translations;
+
+            });
+        },
+
+        executeCommonTranslations : function (commonTranslations) { // commonKeysArray
+
+            $translate(commonTranslations).then(function (translations) {
+
+                return translations;
+
             });
         }
     }

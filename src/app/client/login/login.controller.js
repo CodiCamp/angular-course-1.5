@@ -15,8 +15,11 @@ function LoginController ($state, UserService, filterByUP, ProfileService, Trans
     };
 
     vm.translations = {};
+    vm.errorsTranslations = {};
+    vm.commonTranslations = {};
 
     console.log(Translations);
+    var allTranslations = Translations.executeTranslations(translations);
 
     activate();
 
@@ -31,7 +34,10 @@ function LoginController ($state, UserService, filterByUP, ProfileService, Trans
                 console.error(response);
             });
 
-        vm.translations = Translations.executeTranslations(translations);
+        vm.translations = allTranslations.pageTranslations;
+        vm.errorsTranslations = allTranslations.errorsTranslations;
+        vm.commonTranslations = allTranslations.commonTranslations;
+
     }
 
     vm.initiateLogin = function () {
